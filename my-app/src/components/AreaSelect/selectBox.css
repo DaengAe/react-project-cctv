@@ -1,0 +1,191 @@
+.sidebar {
+    position: fixed;
+    left: -300px; /* 기본 위치 (숨김) */
+    top: 0;
+    width: 300px; /* 사이드바 너비 */
+    height: 100%;
+    background-color: white;
+    border-right: 1px solid #ccc;
+    transition: left 0.3s ease;
+    z-index: 1001;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar.open {
+    left: 0; /* 열릴 때 위치 */
+}
+
+.selectBox {
+    padding: 20px; /* 패딩 추가로 여백 확보 */
+}
+
+.box {
+    font-size: 15px;
+    margin: 0px 0px 20px 0px; /* 위아래 여백 추가 */
+    padding: 10px 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    width: calc(100%); /* 박스 크기 조정 */
+}
+
+.btn1 {
+    margin: 10px 0px 0px 200px; /* 위아래 여백 추가 */
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    padding: 7px 15px;
+    border: none; /* 테두리 제거 */
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(144, 202, 75, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s; /* 배경색 전환 */
+}
+
+.btn1:hover {
+    background-color: rgba(80, 100, 30, 1);
+}
+
+.toggle-button {
+    position: absolute; /* 사이드바에 상대적으로 위치 */
+    top: 10px; /* 상단 여백 */
+    right: -53px; /* 사이드바 오른쪽 바깥에 위치 (버튼 너비 조정 필요) */
+    z-index: 1001;
+    padding: 5px 0px 0px 0px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+    background-color: gray;
+}
+
+.toggle-button img {
+    width: 24px; /* 아이콘 크기 조정 */
+    height: 24px; /* 아이콘 크기 조정 */
+}
+
+
+/* 전체 checkbox 그룹에 스타일 */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 두 개의 열을 만들기 */
+    gap: 20px; /* 열 간 간격 */
+    padding: 10px; /* 그룹의 패딩 */
+}
+
+/* 개별 라벨에 스타일 */
+.checkbox-group label {
+    display: flex;
+    align-items: center; /* 체크박스와 텍스트가 수평으로 정렬되도록 */
+    font-size: 14px; /* 텍스트 크기 조정 */
+    cursor: pointer; /* 클릭 가능한 영역으로 보이게 */
+    padding-right: 10px; /* 텍스트 오른쪽에 약간의 간격 */
+    padding-bottom: 15px;
+}
+
+/* 체크박스 스타일 */
+.checkbox-group input[type="checkbox"] {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    -webkit-appearance: none; /* 기본 스타일 제거 */
+    -moz-appearance: none; /* 기본 스타일 제거 */
+    appearance: none; /* 모든 브라우저에서 기본 스타일 제거 */
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border: 2px solid #ccc; /* 기본 테두리 */
+    border-radius: 4px; /* 둥근 모서리 */
+    position: relative;
+    cursor: pointer;
+    background-color: #fff; /* 기본 배경 */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* 체크된 상태 */
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: #3dbeff; /* 체크된 배경색 */
+    border-color: #3dbeff; /* 체크된 테두리 색 */
+}
+
+/* 체크 표시 색상 */
+.checkbox-group input[type="checkbox"]:checked::after {
+    content: "✔";  /* 체크 표시 */
+    position: absolute;
+    top: -2px;
+    left: 3px;
+    font-size: 15px;
+    color: white; /* 체크된 표시 색상 (화이트로 설정) */
+}
+
+/* 체크박스를 선택했을 때의 스타일 (선택된 체크박스에 색상 변경) */
+.checkbox-group input[type="checkbox"]:checked {
+    accent-color: transparent; /* 기본 색상 제거 */
+}
+
+/* 전체 선택 버튼 스타일 */
+.select-all-btn {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    width: 100%; /* 버튼의 너비를 꽉 차게 설정 */
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border: 2px solid #3dbeff;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #3dbeff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.select-all-btn.active {
+    background-color: #3dbeff;
+    color: white;
+}
+
+.select-all-btn:hover {
+    background-color: #d8d8d8;
+}
+
+.select-all-btn:focus {
+    outline: none;
+}
+
+
+/* 로고와 사이트 이름 스타일 */
+.logo-section {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 0px 20px;
+}
+
+.logo {
+    width: 40px;  /* 로고 크기 */
+    height: 40px; /* 로고 크기 */
+    margin-right: 15px; /* 로고와 텍스트 간의 간격 */
+}
+
+.site-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* 구분선 스타일 */
+.divider {
+    border: none; /* 기본 border 없애기 */
+    border-top: 2px solid #adadad; /* 구분선 색과 두께 */
+    margin-bottom: 10px; /* 구분선과 다른 요소 간의 여백 */
+    width: 85%;
+    margin-left : auto;
+    margin-right : auto;
+}

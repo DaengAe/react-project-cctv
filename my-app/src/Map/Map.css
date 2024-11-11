@@ -1,0 +1,44 @@
+
+.toggle-layer-button {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* 다른 요소보다 앞에 표시 */
+    padding: 7px 15px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #FF8200;
+    transition: background-color 0.3s;
+}
+
+.toggle-layer-button:hover {
+    background-color: #8B4F1D;
+}
+
+
+.toggle-layer-button2 {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    position: fixed;
+    top: 10px;
+    left: 450px;
+    z-index: 1000; /* 다른 요소보다 앞에 표시 */
+    padding: 7px 15px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: rgba(144, 202, 75, 1);
+}
+
+.toggle-layer-button2:hover {
+    background-color: rgba(80, 100, 30, 1);
+}
