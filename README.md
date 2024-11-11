@@ -1,1 +1,1 @@
-npm run prebuild && npm run start
+"npm run prebuild && npm run start"
