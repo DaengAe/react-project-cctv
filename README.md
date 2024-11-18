@@ -1,3 +1,5 @@
+# 실행 화면
+
 ![실행 화면](https://github.com/user-attachments/assets/6bb6d2a5-8ec4-4c27-bb88-a3a2ab7e7eae)
 
 # 초기화
