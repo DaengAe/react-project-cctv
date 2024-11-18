@@ -8,24 +8,24 @@ function App() {
     const [selectedGubun, setSelectedGubun] = useState([]);
 
     const handleResult = (area, gubun) => {
-        setSelectedArea(area);
-        setSelectedGubun(gubun);  // gubun도 업데이트
+        setSelectedArea(area);  //area 업데이트
+        setSelectedGubun(gubun);  //gubun 업데이트
     };
 
     return (
         <>
         <div className='App'>
-            <div id="map" className="map" style={{ width: '100%', height: '100%' }}></div>
+            <div id="map" className="map" style={{ width:'100%', height:'100%'}}>
+            </div>
             <div>
-                <RealEstate onResult={handleResult} />
-                <Map selectedArea={selectedArea} selectedGubun={selectedGubun} /> {/* selectedGubun 전달 */}
+                <RealEstate onResult={handleResult} /> {/* handleResult 전달 */}
+                <Map selectedArea={selectedArea} selectedGubun={selectedGubun} />
+                {/* selectedArea, selectedGubun 전달 */}
             </div>
         </div>
         </>
     );
 }
-
-
 export default App;
 
 

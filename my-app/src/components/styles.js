@@ -21,6 +21,7 @@ const markerMap = {
     '어린이보호': MarkerImg9,
 };
 
+//마커 스타일
 export const createStyle = (src) => {
     return new Style({
         image: new Icon({
@@ -31,11 +32,13 @@ export const createStyle = (src) => {
     });
 };
 
+//마커 구분 별 스타일 지정
 export const getStyleByType = (type) => {
-    const src = markerMap[type] || MarkerImg; // 기본 이미지 사용
-    return createStyle(src);
-};
+    const src = markerMap[type] || MarkerImg; // 기본 이미지 지정
+    return createStyle(src);};
 
+    
+//클러스터 스타일 지정
 export const createClusterStyle = (size) => {
     let style;
     const createCircleStyle = (radius, color) => {
@@ -43,22 +46,18 @@ export const createClusterStyle = (size) => {
             image: new Circle({
                 radius: radius,
                 stroke: new Stroke({
-                    color: '#fff',
-                }),
+                    color: '#fff',}),
                 fill: new Fill({
-                    color: color,
-                }),
+                    color: color,}),
             }),
             text: new Text({
                 text: size.toString(),
                 fill: new Fill({
-                    color: '#fff',
-                }),
+                    color: '#fff',}),
                 scale: 1.75,
             }),
         });
     };
-
     if (size === 1) {
         return null; // 클러스터가 아닌 경우는 null 반환
     } else if (size < 10) {
@@ -70,11 +69,10 @@ export const createClusterStyle = (size) => {
     } else {
         createCircleStyle(55, 'rgba(255, 70, 50, 0.9)');
     }
-
     return style;
 };
 
-
+//팝업창에 보여질 내용 구성
 export const createInfoHTML = ({ Address1, Address2, Gubun, Camera, Bogwan, MakeDate, Number }) => `
     <div style="text-align: left; margin: 10px 10px 0; padding: 0 10px; line-height: 30px;">
         <table style="width: 100%; border-collapse: separate; border-spacing: 0 7px;">

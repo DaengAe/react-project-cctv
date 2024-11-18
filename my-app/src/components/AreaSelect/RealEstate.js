@@ -7,24 +7,11 @@ import X from '../../Map/MarkerImg/x_icon.png';
 import Menu from '../../Map/MarkerImg/menu_icon.png';
 import Logo from '../../Map/MarkerImg/marker.png';
 
-
 export function RealEstate({ onResult }) {  // props로 onResult 받기
     const [result, setResult] = useState('');
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [selectedGubun, setSelectedGubun] = useState([]);
     const [selectAll, setSelectAll] = useState(false);
-
-    useEffect(() => {
-        selectBOX();
-
-        // 페이지 로드 후 3초(3000ms) 후에 사이드바가 자동으로 펼쳐지도록 설정
-        const timer = setTimeout(() => {
-            setSidebarOpen(true); // 5초 후 사이드바 열기(지도 로딩 시간)
-        }, 5000);
-
-        // 컴포넌트가 언마운트될 때 타이머를 정리하는 코드
-        return () => clearTimeout(timer);
-    }, []);
 
     const handleClick = () => {
         let sido = $("#sido1 option:selected").val();
@@ -33,38 +20,37 @@ export function RealEstate({ onResult }) {  // props로 onResult 받기
             Swal.fire({
                 icon: 'warning',
                 title: "오류",
-                html: "시/도를 선택해주세요."
-            });
+                html: "시/도를 선택해주세요."});
         } else if (gugun === "구/군 선택") {
             Swal.fire({
                 icon: 'warning',
                 title: "오류",
-                html: "구/군을 선택해주세요."
-            });
+                html: "구/군을 선택해주세요."});
         } else {
-            // 체크된 gubun 값을 가져옵니다
-            const selectedGubunValues = Array.from(document.querySelectorAll("input[name='gubun']:checked")).map(input => input.value);
+            // 체크된 gubun 값 가져오기
+            const selectedGubunValues = Array.from(document.querySelectorAll
+                ("input[name='gubun']:checked")).map(input => input.value);
 
             if (selectedGubunValues.length === 0) {
                 Swal.fire({
                     icon: 'warning',
                     title: "오류",
-                    html: "적어도 하나의 CCTV 유형을 선택해주세요."
-                });
+                    html: "적어도 하나의 CCTV 유형을 선택해주세요."});
                 return;
             }
-
-            const result = `${sido} ${gugun}`;
-            setResult(result);
-            onResult(result, selectedGubunValues);  // 부모에게 result 전달
+            const selectedAreaValues = `${sido} ${gugun}`;
+            setResult(selectedAreaValues);
+            onResult(selectedAreaValues, selectedGubunValues);  // 부모에게 result 전달
             setSidebarOpen(false);
         }
     };
 
+    //사이드바 토글 기능
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     };
 
+    //구분 값 선택하는 함수
     const handleGubunChange = (event) => {
         const { value, checked } = event.target;
         setSelectedGubun(prevState =>
@@ -78,7 +64,7 @@ export function RealEstate({ onResult }) {  // props로 onResult 받기
         const checkboxes = document.querySelectorAll("input[name='gubun']");
         const isChecked = !selectAll; // 버튼이 클릭될 때마다 반전시켜서 선택 상태 관리
 
-        // 모든 체크박스를 선택하거나 해제합니다.
+        // 모든 체크박스를 선택하거나 해제
         checkboxes.forEach(checkbox => {
             checkbox.checked = isChecked;
         });
@@ -91,6 +77,16 @@ export function RealEstate({ onResult }) {  // props로 onResult 받기
             setSelectedGubun([]);
         }
     };
+
+    useEffect(() => {
+        selectBOX();
+
+        // 페이지 로드 후 5초 후에 사이드바가 자동으로 펼쳐지도록 설정
+        const timer = setTimeout(() => {
+            setSidebarOpen(true); // 5초 후 사이드바 열기(지도 로딩 시간)
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div>
@@ -107,7 +103,7 @@ export function RealEstate({ onResult }) {  // props로 onResult 받기
                     <h1 className="site-name">CCTV 한눈에 보기</h1>
                 </div>
                 <hr className="divider" /> {/* 구분선 */}
-
+                {/* 지역 선택 selectBOX */}
                 <div className='selectBox'>
                     <select className='box' name="sido1" id="sido1"></select>
                     <select className='box' name="gugun1" id="gugun1"></select>

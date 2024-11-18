@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MapContext, GetCctvData, transform, Vector, createMap, createPointFeatures, createClusterLayer, setMapClickEvent, setPointerMoveEvent } from '../components';
+import { MapContext, GetCctvData, transform, Vector, createMap, createPointFeatures,
+        createClusterLayer, setMapClickEvent, setPointerMoveEvent } from '../components';
 import Swal from 'sweetalert2';
 import './Map.css';
 import {ZoomControls} from '../components';
@@ -21,7 +22,8 @@ const Map = ({ selectedArea, selectedGubun, children }) => {
             map.setTarget(undefined);
         };
     }, []);
-
+    
+    // 범죄주의구간 레이어 토글
     const toggleBjgLayer = () => {
         const newVisibility = !isBjgLayerVisible;
         setIsBjgLayerVisible(newVisibility);
@@ -90,7 +92,7 @@ const Map = ({ selectedArea, selectedGubun, children }) => {
                 duration: 1000,
             });
         } else {
-            // 좌표가 없을 경우 기본값을 설정 (임의의 위치)
+            // 좌표가 없을 경우 기본값을 설정
             map.getView().animate({
                 center: transform([127.7, 36.1], 'EPSG:4326', 'EPSG:3857'), // 기본 위치: 한국 중앙
                 zoom: 7.5,
@@ -99,7 +101,7 @@ const Map = ({ selectedArea, selectedGubun, children }) => {
         }
     };
 
-
+    //줌인 버튼 기능
     const handleZoomInClick = () => {
         const map = mapObj.map;
         if (map) {
@@ -111,6 +113,7 @@ const Map = ({ selectedArea, selectedGubun, children }) => {
         }
     };
 
+    //줌아웃 버튼 기능
     const handleZoomOutClick = () => {
         const map = mapObj.map;
         if (map) {

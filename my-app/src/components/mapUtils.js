@@ -39,7 +39,6 @@ export const createPointFeatures = (locations) => {
         pointFeature.set('style', style);
         pointFeatureArr.push(pointFeature);
     }
-
     return {
         pointFeatureArr,
     };

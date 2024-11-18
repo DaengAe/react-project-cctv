@@ -1,5 +1,6 @@
 import React from 'react';
 
+//줌인, 줌아웃 버튼
 const ZoomControls = ({ onZoomIn, onZoomOut }) => {
     return (
         <div className="custom_zoomcontrol radius_border"> 
