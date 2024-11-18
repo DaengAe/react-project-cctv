@@ -4,7 +4,9 @@
 
 최상위 디렉토리에서
 
-### > npm run prebuild
+```
+npm run prebuild
+```
 
 하시면 됩니다.
 
@@ -17,7 +19,9 @@
 
 최상위 디렉토리에서
 
-### > npm run start
+```
+npm run start
+```
 
 하시면 됩니다.
 
