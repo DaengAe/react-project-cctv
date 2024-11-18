@@ -1,3 +1,5 @@
+![실행 화면](https://github.com/user-attachments/assets/6bb6d2a5-8ec4-4c27-bb88-a3a2ab7e7eae)
+
 # 초기화
 
 \my-app\\.env 파일에 API 키(브이월드 지도, 범죄주의구간 WMS) 저장 후
