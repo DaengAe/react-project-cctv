@@ -1,5 +1,7 @@
 # 초기화
 
+\my-app\.env 파일에 API 키(브이월드 지도, 범죄주의구간 WMS) 저장 후
+
 최상위 디렉토리에서
 
 ### > npm run prebuild
