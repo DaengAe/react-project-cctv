@@ -13,7 +13,7 @@ REACT_APP_BASE_MAP_API_KEY={브이월드 지도 API 키}
 
 최상위 디렉토리에서
 
-```terminal
+```console
 npm run prebuild
 ```
 
@@ -28,7 +28,7 @@ npm run prebuild
 
 최상위 디렉토리에서
 
-```terminal
+```console
 npm run start
 ```
 
