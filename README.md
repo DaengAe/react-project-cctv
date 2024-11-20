@@ -11,7 +11,7 @@ REACT_APP_BJG_API_KEY={생활안전지도 범죄주의구간(전체) API 키}
 REACT_APP_BASE_MAP_API_KEY={브이월드 지도 API 키}
 ```
 
-최상위 디렉토리에서
+최상위 디렉토리 콘솔에서
 
 ```console
 npm run prebuild
@@ -26,7 +26,7 @@ npm run prebuild
 
 # 서버 실행 방법
 
-최상위 디렉토리에서
+최상위 디렉토리 콘솔에서
 
 ```console
 npm run start
